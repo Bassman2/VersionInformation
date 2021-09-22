@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace VersionInformation
 {
@@ -25,10 +26,12 @@ namespace VersionInformation
         }
 
         private static void ShowVersionInformation(string solutionFile)
-        { 
-            foreach (var project in SolutionParser.Parse(solutionFile))
+        {
+            string basePath = Path.GetDirectoryName(solutionFile);
+            foreach (var projectPath in SolutionParser.Parse(solutionFile))
             {
-                Console.WriteLine(project);
+                VersionInfo info = VersionInfo.LoadProject(Path.Combine(basePath, projectPath));
+                Console.WriteLine($"{info.Version} {info.Authors} {info.Copyright}");
             }
         }
 

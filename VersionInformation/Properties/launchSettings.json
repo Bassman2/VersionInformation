@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VersionInformation": {
+      "commandName": "Project",
+      "commandLineArgs": "show \"C:\\Projects\\MediaDevices\\MediaDevicesPreview.sln\""
+    }
+  }
+}
